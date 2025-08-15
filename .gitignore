@@ -1,0 +1,38 @@
+﻿# Archivos y carpetas temporales de Visual Studio
+.vs/
+
+# Binarios y compilados
+bin/
+obj/
+
+# Archivos de usuario de VS
+*.user
+*.suo
+
+# Archivos de configuración local
+*.userprefs
+
+# Cache de dependencias
+packages/
+
+# Archivos de depuración
+*.pdb
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Carpetas de compilación intermedia
+Debug/
+Release/
+
+# Archivos generados por compilación
+*.exe
+*.dll
+
+# Configuración de Rider / ReSharper
+.idea/
+_ReSharper*/
+
+# Archivos de log
+*.log

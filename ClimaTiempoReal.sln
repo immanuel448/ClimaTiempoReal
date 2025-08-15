@@ -5,6 +5,27 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClimaTiempoReal.Api", "ClimaTiempoReal.Api\ClimaTiempoReal.Api.csproj", "{22D1F44C-17EF-4E94-B55C-D8E8871FFF7D}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ClimaTiempoReal.Frontend", "ClimaTiempoReal.Frontend\", "{EBEE52D3-E546-AB84-78DB-83CEC28E8FE2}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_51456"
+		Debug.AspNetCompiler.PhysicalPath = "ClimaTiempoReal.Frontend\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51456\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_51456"
+		Release.AspNetCompiler.PhysicalPath = "ClimaTiempoReal.Frontend\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51456\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "51456"
+		SlnRelativePath = "ClimaTiempoReal.Frontend\"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +48,23 @@ Global
 		{22D1F44C-17EF-4E94-B55C-D8E8871FFF7D}.Release|x64.Build.0 = Release|Any CPU
 		{22D1F44C-17EF-4E94-B55C-D8E8871FFF7D}.Release|x86.ActiveCfg = Release|Any CPU
 		{22D1F44C-17EF-4E94-B55C-D8E8871FFF7D}.Release|x86.Build.0 = Release|Any CPU
+		{EBEE52D3-E546-AB84-78DB-83CEC28E8FE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBEE52D3-E546-AB84-78DB-83CEC28E8FE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBEE52D3-E546-AB84-78DB-83CEC28E8FE2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EBEE52D3-E546-AB84-78DB-83CEC28E8FE2}.Debug|x64.Build.0 = Debug|Any CPU
+		{EBEE52D3-E546-AB84-78DB-83CEC28E8FE2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EBEE52D3-E546-AB84-78DB-83CEC28E8FE2}.Debug|x86.Build.0 = Debug|Any CPU
+		{EBEE52D3-E546-AB84-78DB-83CEC28E8FE2}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBEE52D3-E546-AB84-78DB-83CEC28E8FE2}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{EBEE52D3-E546-AB84-78DB-83CEC28E8FE2}.Release|x64.ActiveCfg = Debug|Any CPU
+		{EBEE52D3-E546-AB84-78DB-83CEC28E8FE2}.Release|x64.Build.0 = Debug|Any CPU
+		{EBEE52D3-E546-AB84-78DB-83CEC28E8FE2}.Release|x86.ActiveCfg = Debug|Any CPU
+		{EBEE52D3-E546-AB84-78DB-83CEC28E8FE2}.Release|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F9AF0A11-C72F-4E82-A7A4-542A21B5A8ED}
 	EndGlobalSection
 EndGlobal

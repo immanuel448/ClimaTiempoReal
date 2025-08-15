@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Net.Http.Json;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Text.Json;
 
 namespace ClimaTiempoReal.Api.Controllers
@@ -8,39 +9,30 @@ namespace ClimaTiempoReal.Api.Controllers
     [Route("api/[controller]")]
     public class ClimaController : ControllerBase
     {
-        private readonly HttpClient _http;
+        private readonly HttpClient _httpClient;
 
-        public ClimaController(HttpClient http)
+        public ClimaController(HttpClient httpClient)
         {
-            _http = http;
+            _httpClient = httpClient;
         }
 
         [HttpGet("{ciudad}")]
         public async Task<IActionResult> ObtenerClima(string ciudad)
         {
-            // 1. Obtener coordenadas
-            var coordenadasUrl = $"https://nominatim.openstreetmap.org/search?q={ciudad}&format=json&limit=1";
-            var coordenadasJson = await _http.GetStringAsync(coordenadasUrl);
-            var coordenadas = JsonSerializer.Deserialize<List<Coordenada>>(coordenadasJson);
+            // Aquí deberías usar tu propia API Key de OpenWeatherMap
+            string apiKey = "TU_API_KEY";
+            string url = $"https://api.openweathermap.org/data/2.5/weather?q={ciudad}&appid={apiKey}&units=metric&lang=es";
 
-            if (coordenadas == null || !coordenadas.Any())
-                return NotFound("Ciudad no encontrada");
+            var respuesta = await _httpClient.GetAsync(url);
 
-            var lat = coordenadas[0].Lat;
-            var lon = coordenadas[0].Lon;
+            if (!respuesta.IsSuccessStatusCode)
+                return BadRequest("No se pudo obtener la información del clima");
 
-            // 2. Obtener clima
-            var climaUrl = $"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min&forecast_days=5&timezone=auto";
-            var clima = await _http.GetFromJsonAsync<object>(climaUrl);
+            var contenido = await respuesta.Content.ReadAsStringAsync();
 
-            return Ok(clima);
+            var json = JsonSerializer.Deserialize<object>(contenido);
+
+            return Ok(json);
         }
     }
-
-    public class Coordenada
-    {
-        public string Lat { get; set; }
-        public string Lon { get; set; }
-    }
 }
-

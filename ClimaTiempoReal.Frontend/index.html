@@ -1,19 +1,42 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
     <title>Clima en Tiempo Real</title>
 </head>
 <body>
-    <input type="text" id="ciudad" placeholder="Ingresa ciudad">
-    <button onclick="buscarClima()">Buscar</button>
-    <pre id="resultado"></pre>
+    <h1>Clima en Tiempo Real</h1>
+    <input type="text" id="ciudad" placeholder="Escribe una ciudad">
+    <button onclick="obtenerClima()">Buscar</button>
 
-    <script>async function buscarClima() {
+    <div id="resultado"></div>
+
+    <script>
+        async function obtenerClima() {
             const ciudad = document.getElementById("ciudad").value;
-            const res = await fetch(`https://localhost:5001/api/clima/${ciudad}`);
-            const data = await res.json();
-            document.getElementById("resultado").textContent = JSON.stringify(data, null, 2);
-        }</script>
+            const resultado = document.getElementById("resultado");
+
+            if (!ciudad) {
+                resultado.innerHTML = "Por favor, ingresa una ciudad.";
+                return;
+            }
+
+            try {
+                const response = await fetch(`https://localhost:5001/api/clima?ciudad=${encodeURIComponent(ciudad)}`);
+                if (!response.ok) {
+                    throw new Error("No se pudo obtener el clima.");
+                }
+                const data = await response.json();
+                resultado.innerHTML = `
+                        <h2>${data.ciudad}</h2>
+                        <p>Temperatura: ${data.temperatura} °C</p>
+                        <p>Descripción: ${data.descripcion}</p>
+                    `;
+            } catch (error) {
+                resultado.innerHTML = "Error al obtener el clima.";
+                console.error(error);
+            }
+        }
+    </script>
 </body>
 </html>

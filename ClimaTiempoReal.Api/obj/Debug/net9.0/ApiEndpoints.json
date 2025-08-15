@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "ClimaTiempoReal.Api.Controllers.ClimaController",
+    "Method": "ObtenerClima",
+    "RelativePath": "api/Clima/{ciudad}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ciudad",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

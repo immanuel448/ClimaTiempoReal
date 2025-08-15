@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clima en Tiempo Real</title>
+</head>
+<body>
+    <input type="text" id="ciudad" placeholder="Ingresa ciudad">
+    <button onclick="buscarClima()">Buscar</button>
+    <pre id="resultado"></pre>
+
+    <script>async function buscarClima() {
+            const ciudad = document.getElementById("ciudad").value;
+            const res = await fetch(`https://localhost:5001/api/clima/${ciudad}`);
+            const data = await res.json();
+            document.getElementById("resultado").textContent = JSON.stringify(data, null, 2);
+        }</script>
+</body>
+</html>

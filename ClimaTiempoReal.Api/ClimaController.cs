@@ -20,7 +20,7 @@ namespace ClimaTiempoReal.Api.Controllers
         public async Task<IActionResult> ObtenerClima(string ciudad)
         {
             // Aquí deberías usar tu propia API Key de OpenWeatherMap
-            string apiKey = "TU_API_KEY";
+            string apiKey = "36be44fb38b1e5ab6de112ddbffddb0e";
             string url = $"https://api.openweathermap.org/data/2.5/weather?q={ciudad}&appid={apiKey}&units=metric&lang=es";
 
             var respuesta = await _httpClient.GetAsync(url);

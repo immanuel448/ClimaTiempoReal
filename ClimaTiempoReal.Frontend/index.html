@@ -22,7 +22,7 @@
             }
 
             try {
-                const response = await fetch(`https://localhost:5001/api/clima/${encodeURIComponent(ciudad)}`);
+                const response = await fetch(`https://localhost:7129/api/clima/${ciudad}`);
                 if (!response.ok) {
                     throw new Error("No se pudo obtener el clima.");
                 }

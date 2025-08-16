@@ -10,7 +10,19 @@ builder.Services.AddSwaggerGen();
 // HttpClient para llamadas a APIs externas
 builder.Services.AddHttpClient();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PermitirTodo", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
+
+app.UseCors("PermitirTodo");
 
 // Activar Swagger solo en desarrollo
 if (app.Environment.IsDevelopment())

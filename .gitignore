@@ -5,6 +5,9 @@
 bin/
 obj/
 
+# mi clave para el clima
+appsettings.Development.json
+
 # Archivos de usuario de VS
 *.user
 *.suo

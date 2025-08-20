@@ -5,7 +5,7 @@ using System.Text.Json;
 
 namespace ClimaTiempoReal.Api.Controllers
 {
-    [ApiController] // Indica que esta clase es un controlador de API
+
     [Route("api/[controller]")] // La ruta será api/clima (porque el controlador se llama ClimaController)
     public class ClimaController : ControllerBase
     {

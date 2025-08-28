@@ -41,10 +41,30 @@ namespace ClimaTiempoReal.Api.Controllers
             var contenido = await respuesta.Content.ReadAsStringAsync();
 
             // Deserializa el JSON a un objeto genérico (puedes mapearlo a un modelo después)
-            var json = JsonSerializer.Deserialize<object>(contenido);
+            //var json = JsonSerializer.Deserialize<object>(contenido);
+            var json = JsonSerializer.Deserialize<ClimaResponse>(contenido);
 
             // Devuelve el JSON al cliente (por ejemplo, el frontend)
             return Ok(json);
         }
     }
+
+    //para mapear los resultados
+    public class ClimaResponse
+    {
+        public string Name { get; set; }
+        public MainInfo Main { get; set; }
+        public List<WeatherInfo> Weather { get; set; }
+    }
+
+    public class MainInfo
+    {
+        public double Temp { get; set; }
+    }
+
+    public class WeatherInfo
+    {
+        public string Description { get; set; }
+    }
+
 }

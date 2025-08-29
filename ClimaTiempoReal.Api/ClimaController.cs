@@ -42,7 +42,13 @@ namespace ClimaTiempoReal.Api.Controllers
 
             // Deserializa el JSON a un objeto genérico (puedes mapearlo a un modelo después)
             //var json = JsonSerializer.Deserialize<object>(contenido);
-            var json = JsonSerializer.Deserialize<ClimaResponse>(contenido);
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
+            var json = JsonSerializer.Deserialize<ClimaResponse>(contenido, options);
+
 
             // Devuelve el JSON al cliente (por ejemplo, el frontend)
             return Ok(json);

@@ -47,6 +47,22 @@ namespace ClimaTiempoReal.Api.Controllers
             // Devuelve el JSON al cliente (por ejemplo, el frontend)
             return Ok(json);
         }
+
+        [HttpGet("pronostico/{ciudad}")]
+        public async Task<IActionResult> ObtenerPronostico(string ciudad)
+        {
+            string url = $"https://api.openweathermap.org/data/2.5/forecast?q={ciudad}&appid={_apiKey}&units=metric&lang=es";
+            var respuesta = await _httpClient.GetAsync(url);
+
+            if (!respuesta.IsSuccessStatusCode)
+                return BadRequest("No se pudo obtener el pronóstico");
+
+            var contenido = await respuesta.Content.ReadAsStringAsync();
+            var json = JsonSerializer.Deserialize<object>(contenido);
+
+            return Ok(json);
+        }
+
     }
 
     //para mapear los resultados

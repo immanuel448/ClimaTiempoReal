@@ -85,8 +85,6 @@ namespace ClimaTiempoReal.Api.Controllers
         {
             return Ok(_ciudadesFavoritas);
         }
-
-
     }
 
     //para mapear los resultados

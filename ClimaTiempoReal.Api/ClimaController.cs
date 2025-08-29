@@ -63,6 +63,24 @@ namespace ClimaTiempoReal.Api.Controllers
             return Ok(json);
         }
 
+        private static List<string> _ciudadesFavoritas = new();
+
+        [HttpPost("favoritos/{ciudad}")]
+        public IActionResult AgregarFavorito(string ciudad)
+        {
+            if (!_ciudadesFavoritas.Contains(ciudad))
+                _ciudadesFavoritas.Add(ciudad);
+
+            return Ok(_ciudadesFavoritas);
+        }
+
+        [HttpGet("favoritos")]
+        public IActionResult ObtenerFavoritos()
+        {
+            return Ok(_ciudadesFavoritas);
+        }
+
+
     }
 
     //para mapear los resultados

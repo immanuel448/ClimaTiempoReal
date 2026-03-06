@@ -1,14 +1,14 @@
 var builder = WebApplication.CreateBuilder(args);
-// Crea el objeto principal para configurar la aplicación (builder)
+// Crea el objeto principal para configurar la aplicaciï¿½n (builder)
 
 builder.Services.AddControllers();
 // Registra los controladores de la API en el contenedor de servicios
 
 builder.Services.AddEndpointsApiExplorer();
-// Habilita la exploración de endpoints, necesario para Swagger
+// Habilita la exploraciï¿½n de endpoints, necesario para Swagger
 
 builder.Services.AddSwaggerGen();
-// Registra Swagger para generar documentación de la API
+// Registra Swagger para generar documentaciÃ³n de la API
 
 builder.Services.AddHttpClient();
 // Registra un HttpClient que se puede inyectar en controladores para consumir APIs externas
@@ -18,17 +18,17 @@ builder.Services.AddCors(options =>
     options.AddPolicy("PermitirTodo", policy =>
     {
         policy.AllowAnyOrigin()    // Permite peticiones desde cualquier origen
-              .AllowAnyMethod()    // Permite cualquier método HTTP (GET, POST, PUT, DELETE, etc.)
+              .AllowAnyMethod()    // Permite cualquier mÃ©todo HTTP (GET, POST, PUT, DELETE, etc.)
               .AllowAnyHeader();   // Permite cualquier encabezado HTTP
     });
 });
-// Configura una política CORS llamada "PermitirTodo"
+// Configura una polï¿½tica CORS llamada "PermitirTodo"
 
 var app = builder.Build();
-// Construye la aplicación con todo lo configurado arriba
+// Construye la aplicaciï¿½n con todo lo configurado arriba
 
 app.UseCors("PermitirTodo");
-// Activa la política CORS para que pueda usarse en las peticiones
+// Activa la polï¿½tica CORS para que pueda usarse en las peticiones
 
 if (app.Environment.IsDevelopment())
 {
@@ -38,13 +38,13 @@ if (app.Environment.IsDevelopment())
 // Si el entorno es de desarrollo, habilita Swagger y su interfaz visual
 
 app.UseHttpsRedirection();
-// Fuerza a que las peticiones HTTP se redirijan automáticamente a HTTPS
+// Fuerza a que las peticiones HTTP se redirijan automï¿½ticamente a HTTPS
 
 app.UseAuthorization();
-// Habilita el middleware de autorización (aunque no haya autenticación aún)
+// Habilita el middleware de autorizaciï¿½n (aunque no haya autenticaciï¿½n aï¿½n)
 
 app.MapControllers();
 // Mapea los controladores para que las rutas funcionen (ej: api/clima)
 
 app.Run();
-// Arranca la aplicación y la deja escuchando en el puerto configurado
+// Arranca la aplicaciï¿½n y la deja escuchando en el puerto configurado
